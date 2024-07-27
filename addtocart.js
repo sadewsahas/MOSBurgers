@@ -276,8 +276,10 @@ const product = [
         price: 850,
     }
 ];
-const categories = [...new Set(product.map((item) => { return item }))]
+
+const categories = [...new Set(product.map((item) => item))];
 let i = 0;
+
 document.getElementById('root').innerHTML = categories.map((item) => {
     var { image, title, price } = item;
     return (
@@ -291,8 +293,8 @@ document.getElementById('root').innerHTML = categories.map((item) => {
         "<button onclick='addtocart(" + (i++) + ")'>Add to cart</button>" +
         `</div>
        </div>`
-    )
-}).join('')
+    );
+}).join('');
 
 var cart = [];
 
@@ -300,6 +302,7 @@ function addtocart(a) {
     cart.push({ ...categories[a] });
     displaycart();
 }
+
 function delElement(a) {
     cart.splice(a, 1);
     displaycart();
@@ -308,11 +311,10 @@ function delElement(a) {
 function displaycart() {
     let j = 0, total = 0;
     document.getElementById("count").innerHTML = cart.length;
-    if (cart.length == 0) {
+    if (cart.length === 0) {
         document.getElementById('cartItem').innerHTML = "Your cart is empty";
-        document.getElementById("total").innerHTML = "$" + 0 + ".00";
-    }
-    else {
+        document.getElementById("total").innerHTML = "Rs. " + 0 + ".00";
+    } else {
         document.getElementById("cartItem").innerHTML = cart.map((items) => {
             var { image, title, price } = items;
             total = total + price;
@@ -328,9 +330,68 @@ function displaycart() {
             );
         }).join('');
     }
-
-
 }
 
+function search() {
+    const searchData = document.getElementById('search-item').value.toLowerCase();
+    const filterData = categories.filter((item) => item.title.toLowerCase().includes(searchData));
+    displayItem(filterData);
+}
+
+const displayItem = (items) => {
+    document.getElementById('root').innerHTML = items.map((item) => {
+        var { image, title, price } = item;
+        return (
+            `<div class='box'>
+            <div class='img-box'>
+            <img class='images' src=${image}></img>
+            </div>
+            <div class='bottom'>
+            <p>${title}</p>
+            <h2>Rs. ${price}.00</h2>` +
+            "<button onclick='addtocart(" + item.id + ")'>Add to cart</button>" +
+            `</div>
+            </div>`
+        );
+    }).join('');
+};
 
 
+displayItem(categories);
+
+
+
+
+
+
+
+var n = 1;
+
+function addRow() {
+
+    var tableBody = document.getElementById('show').getElementsByTagName('tbody')[0];
+
+
+    var inputName = document.getElementById("inputName").value;
+    var inputEmail = document.getElementById("inputEmail").value;
+    var inputMobile = document.getElementById("inputMobile").value;
+
+ 
+    var newRow = tableBody.insertRow(tableBody.rows.length);
+
+
+    var cell1 = newRow.insertCell(0);
+    var cell2 = newRow.insertCell(1);
+    var cell3 = newRow.insertCell(2);
+
+    cell1.innerHTML = inputName;
+    cell2.innerHTML = inputEmail;
+    cell3.innerHTML = inputMobile;
+
+
+    document.getElementById("inputName").value = "";
+    document.getElementById("inputEmail").value = "";
+    document.getElementById("inputMobile").value = "";
+
+    n++;
+}

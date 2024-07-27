@@ -12,40 +12,42 @@
 
 <body>
     <div id="container-fluid">
-        <P class="addcus"><strong>Add Customer Form</strong></P>
-    <form>
-        <div class="form-row">
-
-        </div>
-        <div class="form-group">
-            <label for="inputAddress">Name</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Enter the Name">
-        </div>
-        <div class="form-group">
-            <label for="inputAddress2">E-Mail</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="example@gmail.com">
-        </div>
-        <div class="form-row">
+        <p class="addcus"><strong>Add Customer Form</strong></p>
+        <form>
             <div class="form-group">
-                <label for="inputAddress">Mobile Number</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="##########">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control" id="inputName" placeholder="Enter the Name">
             </div>
-        </div>
-        <div class="form-group">
-        </div>
-        <button type="button" class="btn btn-warning">Add Customer</button>
-        <div>
-            <a class="link" href="addtocart.html">Back To Home</a>
-        </div>
-    </form>
-</div>
+            <div class="form-group">
+                <label for="inputEmail">E-Mail</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="example@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="inputMobile">Mobile Number</label>
+                <input type="text" class="form-control" id="inputMobile" placeholder="##########">
+            </div>
+            <button type="button" class="btn btn-warning" onclick="addRow()">Add Customer</button>
+            <div>
+                <a class="link" href="addtocart.html">Back To Home</a>
+            </div>
+        </form>
+    </div>
 
+    <table class="table table-bordered mt-3" id="show">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>E-Mail</th>
+                <th>Mobile Number</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 
-
-<script src="addtocart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"></script>
+    <script src="addtocart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
